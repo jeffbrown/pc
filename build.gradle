@@ -85,7 +85,6 @@ bootRun {
 
 webdriverBinaries {
     chromedriver '77.0.3865.40'
-    architecture = 'X86'
 }
 
 tasks.withType(Test) {

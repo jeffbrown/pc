@@ -14,59 +14,59 @@ class PersonCrudFunctionalSpec extends GebSpec {
 
     void "test a person older than 120 years old"() {
         when:
-        to CreatePersonPage
+        CreatePersonPage createPersonPage = to CreatePersonPage
 
         then:
         at CreatePersonPage
 
         when:
-        populateCreatePersonForm 'Grandma', 'Brown', '135'
+        createPersonPage.populateCreatePersonForm 'Grandma', 'Brown', '135'
 
         then:
         at CreatePersonPage
 
         and:
-        errorMessage.text() == 'Age [135] is invalid. The maximum allowed age is 120.'
+        createPersonPage.errorMessage.text() == 'Age [135] is invalid. The maximum allowed age is 120.'
     }
 
     void "test a person younger than 1 year old"() {
         when:
-        to CreatePersonPage
+        CreatePersonPage createPersonPage = to CreatePersonPage
 
         then:
         at CreatePersonPage
 
         when:
-        populateCreatePersonForm 'Baby', 'Brown', '0'
+        createPersonPage.populateCreatePersonForm 'Baby', 'Brown', '0'
 
         then:
         at CreatePersonPage
 
         and:
-        errorMessage.text() == 'Age [0] is invalid. The minimum allowed age is 1.'
+        createPersonPage.errorMessage.text() == 'Age [0] is invalid. The minimum allowed age is 1.'
     }
 
     void "test creating people"() {
         when:
-        to CreatePersonPage
+        CreatePersonPage createPersonPage = to CreatePersonPage
 
         then:
         at CreatePersonPage
 
         when:
-        populateCreatePersonForm 'Geddy', 'Lee', '63'
+        createPersonPage.populateCreatePersonForm 'Geddy', 'Lee', '63'
 
         then:
         at ShowPersonPage
 
         when:
-        to CreatePersonPage
+        createPersonPage = to CreatePersonPage
 
         then:
         at CreatePersonPage
 
         when:
-        populateCreatePersonForm 'Alex', 'Lifeson', '63'
+        createPersonPage.populateCreatePersonForm 'Alex', 'Lifeson', '63'
 
         then:
         at ShowPersonPage
@@ -87,9 +87,9 @@ class PersonCrudFunctionalSpec extends GebSpec {
 
     void "test retrieving people"() {
         when:
-        to PersonListPage
+        PersonListPage personListPage = to PersonListPage
 
         then:
-        numberOfPersonRows == 2
+        personListPage.numberOfPersonRows == 2
     }
 }

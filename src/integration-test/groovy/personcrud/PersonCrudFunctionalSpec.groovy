@@ -81,6 +81,8 @@ class PersonCrudFunctionalSpec extends GebSpec {
         Long personId = showPersonPage.personId
         showPersonPage = to ShowPersonPage,  personId
 
+        println browser.driver.pageSource
+
         then:
         showPersonPage.personName == 'Alex'
     }

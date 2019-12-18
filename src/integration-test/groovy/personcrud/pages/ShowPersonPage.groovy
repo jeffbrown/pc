@@ -16,11 +16,11 @@ class ShowPersonPage extends Page {
     }
 
     static content = {
-        h1Header { $('#show-person h1', 0) }
+        fieldFirstName { $('div', ("aria-labelledby"): "firstName-label", 0) }
     }
 
     String getPersonName() {
-        h1Header.text()
+        fieldFirstName.text()
     }
 
     Long getPersonId() {

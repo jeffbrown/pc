@@ -69,6 +69,8 @@ dependencies {
         exclude group: 'org.gebish', module: 'geb-spock'
     }
     testCompile "org.gebish:geb-spock:3.2"
+    testCompile "org.seleniumhq.selenium:htmlunit-driver:2.35.1"
+    testRuntime 'net.sourceforge.htmlunit:htmlunit:2.35.0'
     testRuntime "org.seleniumhq.selenium:selenium-chrome-driver:3.141.59"
     testCompile "org.seleniumhq.selenium:selenium-remote-driver:3.141.59"
     testCompile "org.seleniumhq.selenium:selenium-support:3.141.59"

@@ -84,7 +84,7 @@ bootRun {
 }
 
 webdriverBinaries {
-    chromedriver '77.0.3865.40'
+    chromedriver '78.0.3904.105'
 }
 
 tasks.withType(Test) {

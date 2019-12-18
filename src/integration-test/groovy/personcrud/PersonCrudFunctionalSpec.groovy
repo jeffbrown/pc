@@ -70,6 +70,19 @@ class PersonCrudFunctionalSpec extends GebSpec {
 
         then:
         at ShowPersonPage
+
+        when:
+        ShowPersonPage showPersonPage = browser.page(ShowPersonPage)
+
+        then:
+        showPersonPage.personId
+
+        when:
+        Long personId = showPersonPage.personId
+        showPersonPage = to ShowPersonPage,  personId
+
+        then:
+        showPersonPage.personName == 'Alex'
     }
 
     void "test retrieving people"() {
